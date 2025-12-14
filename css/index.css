@@ -33,6 +33,9 @@
     color: var(--main-red-color);
 }
 
+body{
+    background-color: rgb(248, 250, 252);
+}
 /* END   OF GLOBAL STYLES  */
 
 
@@ -154,7 +157,7 @@ nav .nav-photo img {
 
 /* START OF CONTACT SUMMARY SECTION */
 .contact-summary {
-    background-color: rgb(248, 250, 252);
+    /* background-color: rgb(248, 250, 252); */
     margin-bottom: 2.375rem;
     margin-top: 5rem;
 }
@@ -181,11 +184,11 @@ nav .nav-photo img {
 }
 
 .contact-summary-item .favorites-icon {
-    background: linear-gradient(to right bottom, rgb(255, 185, 0) 0%, rgb(255, 105, 0) 100%);
+    background: linear-gradient(to right bottom, var(--main-orange-color) 0%, rgb(255, 105, 0) 100%);
 }
 
 .contact-summary-item .emergency-icon {
-    background: linear-gradient(to right bottom, rgb(255, 32, 86) 0%, rgb(231, 0, 11) 100%);
+    background: linear-gradient(to right bottom, var(--main-red-color) 0%, rgb(231, 0, 11) 100%);
 }
 
 .contact-summary-item .sum p {
@@ -200,9 +203,6 @@ nav .nav-photo img {
 /* START OF SEARCH SECTION */
 
 
-.search {
-    background-color: rgb(248, 250, 252);
-}
 
 .search h2 {
     font-size: 1.5rem;
@@ -294,7 +294,7 @@ nav .nav-photo img {
 }
 
 .search .contact-details .contact-name .letter .letter-heart {
-    background-color: rgb(255, 32, 86);
+    background-color: var(--main-red-color);
     bottom: -2px;
 }
 
@@ -406,12 +406,12 @@ nav .nav-photo img {
 
 .search .contact-card .card-btns .contact-favorite-add:hover {
     background-color: rgb(243, 244, 246);
-    color: rgb(255, 185, 0);
+    color: var(--main-orange-color);
 }
 
 .search .contact-card .card-btns .contact-emergency-add:hover {
     background-color: rgb(243, 244, 246);
-    color: rgb(255, 32, 86);
+    color: var(--main-red-color);
 }
 
 .search .contact-card .card-btns .contact-edit:hover {
@@ -465,12 +465,12 @@ nav .nav-photo img {
 .search .favorite-card .favorite-card-star {
     width: 2rem;
     height: 2rem;
-    background: linear-gradient(to right bottom, rgb(255, 185, 0) 0%, rgb(255, 105, 0) 100%);
+    background: linear-gradient(to right bottom, var(--main-orange-color) 0%, rgb(255, 105, 0) 100%);
 }
 
 
 .search .emergency-card .emergency-card-heart {
-    background: linear-gradient(to right bottom, rgb(255, 32, 86) 0%, rgb(231, 0, 11) 100%);
+    background: linear-gradient(to right bottom, var(--main-red-color) 0%, rgb(231, 0, 11) 100%);
     width: 2rem;
     height: 2rem;
 }
