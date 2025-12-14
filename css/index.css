@@ -1,0 +1,571 @@
+/* Start font face  */
+@font-face {
+    font-family: Inter;
+    src: url('../webfonts/Inter-VariableFont_opsz\,wght.ttf') format(truetype);
+    font-display: swap;
+}
+
+/* End font face  */
+
+
+
+/* START OF GLOBAL STYLES  */
+:root {
+    --grey-color: rgb(106, 114, 130);
+    --main-color: rgb(127, 34, 254);
+    --main-orange-color: rgb(255, 185, 0);
+    --main-red-color: rgb(255, 32, 86);
+}
+
+.grey-color {
+    color: var(--grey-color);
+}
+
+.main-color {
+    color: var(--main-color);
+}
+
+.main-orange-color {
+    color: var(--main-orange-color);
+}
+
+.main-red-color {
+    color: var(--main-red-color);
+}
+
+/* END   OF GLOBAL STYLES  */
+
+
+/* START OF NAVBAR SECTION  */
+nav {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(1.25rem);
+}
+
+nav .nav-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(to right bottom, var(--main-color) 0%, rgb(79, 57, 246) 100%);
+    box-shadow: rgba(142, 81, 255, 0.25) 0px 10px 15px -3px, rgba(142, 81, 255, 0.25) 0px 4px 6px -4px;
+    border-radius: .75rem;
+}
+
+nav .nav-header h1 {
+    font-size: 24px;
+}
+
+nav .nav-header p {
+    font-size: 12px;
+    color: rgb(106, 114, 130);
+}
+
+nav .nav-left,
+nav .nav-right {
+    column-gap: .75rem;
+}
+
+nav .nav-right .contact-span {
+    display: none;
+}
+
+nav .add-btn {
+    border-radius: .75rem;
+    padding-block: .625rem;
+    padding-inline: 1.25rem;
+    background: linear-gradient(to right, var(--main-color) 0%, rgb(79, 57, 246) 100%);
+    transition: .2s all;
+}
+
+nav .add-btn:hover {
+    box-shadow: rgba(142, 81, 255, 0.3) 0px 10px 15px -3px, rgba(142, 81, 255, 0.3) 0px 4px 6px -4px;
+    transform: translateY(-2px);
+}
+
+nav .add-btn i {
+    font-size: 12px;
+}
+
+nav .notification-bell {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .375rem;
+    transition: .2s all;
+    display: none;
+}
+
+nav .notification-bell:hover {
+    background-color: oklch(0.967 0.003 264.542);
+}
+
+nav .nav-photo img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .75rem;
+}
+
+.modal-body form .user-image-upload {
+    column-gap: .75rem;
+}
+
+.modal-body form .user-image-upload .user-image {
+    width: 6rem;
+    height: 6rem;
+    background: linear-gradient(to right bottom, rgb(81, 162, 255) 0%, rgb(21, 93, 251) 100%);
+    font-size: 1.875rem;
+}
+
+.modal-body form .user-image-upload label {
+    background-color: rgb(243, 244, 246);
+    font-size: 14px;
+    color: rgb(54, 65, 83);
+    transition: .2s all;
+}
+
+.modal-body form .user-image-upload label:hover {
+    background-color: rgb(229, 231, 235);
+}
+
+.modal-body form .warning {
+    font-size: 12px;
+    margin-top: .375rem;
+}
+
+
+.modal .modal-body .form-control,
+.modal .modal-body .form-select {
+    padding-block: .75rem;
+    border-radius: .75rem;
+    /* margin-bottom: .5rem; */
+}
+
+.modal .modal-body .form-control:focus,
+.modal .modal-body .form-select:focus {
+    border-color: rgb(142, 81, 255);
+    box-shadow: oklab(0.606 0.096545 -0.230606 / 0.2) 0px 0px 0px 2px;
+}
+.modal .modal-body textarea{
+    resize: none;
+}
+.modal .modal-body input+span {
+    margin-bottom: 1.25rem;
+}
+/* END   OF NAVBAR SECTION  */
+
+
+/* START OF CONTACT SUMMARY SECTION */
+.contact-summary {
+    background-color: rgb(248, 250, 252);
+    margin-bottom: 2.375rem;
+    margin-top: 5rem;
+}
+
+.contact-summary-item {
+    border-color: rgb(243, 244, 246);
+    transition: .2s all;
+}
+
+.contact-summary-item:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;
+}
+
+.contact-summary-item .summary-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: .75rem;
+    margin-right: .75rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+}
+
+.contact-summary-item .total-icon {
+    background: linear-gradient(to right bottom, rgb(43, 127, 255) 0%, rgb(21, 93, 251) 100%);
+}
+
+.contact-summary-item .favorites-icon {
+    background: linear-gradient(to right bottom, rgb(255, 185, 0) 0%, rgb(255, 105, 0) 100%);
+}
+
+.contact-summary-item .emergency-icon {
+    background: linear-gradient(to right bottom, rgb(255, 32, 86) 0%, rgb(231, 0, 11) 100%);
+}
+
+.contact-summary-item .sum p {
+    font-size: .6875rem;
+    color: var(--grey-color);
+}
+
+
+/* END OF CONTACT SUMAMRY SECTION */
+
+
+/* START OF SEARCH SECTION */
+
+
+.search {
+    background-color: rgb(248, 250, 252);
+}
+
+.search h2 {
+    font-size: 1.5rem;
+}
+
+.search p {
+    margin-top: .25rem;
+    color: var(--grey-color);
+    font-size: .875rem;
+}
+
+.search .search-input {
+    margin-bottom: 1.5rem;
+}
+
+.search .search-input input {
+    padding-block: .875rem;
+    padding-left: 2.75rem;
+    border-radius: .75rem;
+}
+
+.search .search-input input::placeholder,
+.search .search-input i {
+    color: #99A1AF;
+    font-size: .875rem;
+}
+
+.search .form-control:focus {
+    border-color: rgb(142, 81, 255);
+    box-shadow: oklab(0.606 0.096545 -0.230606 / 0.2) 0px 0px 0px 2px;
+
+}
+
+.search .no-contact {
+    display: none;
+    padding-block: 5rem;
+}
+
+.search .no-contact .no-contact-icon {
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(243, 244, 246);
+    font-size: 1.875rem;
+    color: rgb(209, 213, 219);
+
+}
+
+
+.search .no-contact p,
+.search .no-fav-card p,
+.search .no-emer-card p {
+    color: rgb(153, 161, 175);
+}
+
+.search .contact-card {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+    transition: .2s all;
+}
+
+.search .contact-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+}
+
+.search .contact-details {
+    padding-bottom: 12px;
+
+}
+
+.search .contact-details .contact-name .letter .name-1letter {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: .75rem;
+    background: linear-gradient(to right bottom, rgb(97, 95, 255) 0%, var(--main-color) 100%);
+    font-size: 1.125rem;
+}
+
+.search .contact-details .contact-name .letter .letter-span {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: .5rem;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px;
+    right: -2px;
+
+}
+
+.search .contact-details .contact-name .letter .letter-star {
+    background-color: #FFB900;
+    top: -2px;
+}
+
+.search .contact-details .contact-name .letter .letter-heart {
+    background-color: rgb(255, 32, 86);
+    bottom: -2px;
+}
+
+.search .contact-name .contact-number .phone-span {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #DBEAFE;
+    color: #155DFC;
+    font-size: .5625rem;
+    border-radius: .375rem;
+}
+
+.search .contact-name .contact-number span {
+    font-size: 14px;
+    color: var(--grey-color);
+}
+
+.search .contact-email {
+    margin-top: .75rem;
+}
+
+.search .contact-span {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 10px;
+    border-radius: 8px;
+}
+
+.search .contact-email .envelope-span {
+    background-color: rgb(237, 233, 254);
+    color: var(--main-color);
+}
+
+.search .contact-address .address-span {
+    background-color: rgb(208, 250, 229);
+    color: rgb(0, 153, 102);
+}
+
+.search .contact-email span,
+.search .contact-address span {
+    font-size: .875rem;
+    color: rgb(74, 85, 101);
+}
+
+.search .contact-group {
+    font-size: .6875rem;
+    /* background-color: rgb(219, 234, 254); */
+    /* color: rgb(20, 71, 230); */
+    border-radius: .375rem;
+}
+
+.search .contact-emergency {
+    background-color: #FFF1F2;
+    color: rgb(236, 0, 63);
+    border-radius: .375rem;
+    font-size: .6875rem;
+}
+
+.contact-card-footer {
+    background-color: rgba(249, 250, 251, 0.8);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-block: .625rem;
+    border-top: .667px solid rgb(243, 244, 246);
+}
+
+.search .contact-card .reach-direct a {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 14px;
+}
+
+.search .contact-card .reach-direct .contact-call {
+    background-color: #ECFDF5;
+    color: #009966;
+    transition: .2s all;
+}
+
+.search .contact-card .reach-direct .contact-call:hover {
+    background-color: #D0FAE5;
+}
+
+.search .contact-card .reach-direct .contact-mail {
+    background-color: #F5F3FF;
+    color: #7F22FE;
+    transition: .2s all;
+}
+
+.search .contact-card .reach-direct .contact-mail:hover {
+    background-color: #EDE9FE;
+}
+
+.search .contact-card .card-btns button {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.search .contact-card .card-btns .contact-favorite-add,
+.search .contact-card .card-btns .contact-emergency-add {
+    color: rgb(153, 161, 175);
+    transition: .2s all;
+}
+
+.search .contact-card .card-btns .contact-edit,
+.search .contact-card .card-btns .contact-delete {
+    color: var(--grey-color);
+    transition: .2s all;
+}
+
+.search .contact-card .card-btns .contact-favorite-add:hover {
+    background-color: rgb(243, 244, 246);
+    color: rgb(255, 185, 0);
+}
+
+.search .contact-card .card-btns .contact-emergency-add:hover {
+    background-color: rgb(243, 244, 246);
+    color: rgb(255, 32, 86);
+}
+
+.search .contact-card .card-btns .contact-edit:hover {
+    background-color: rgb(238, 242, 255);
+    color: rgb(79, 57, 246);
+}
+
+.search .contact-card .card-btns .contact-delete:hover {
+    background-color: rgb(255, 241, 242);
+    color: rgb(236, 0, 63);
+}
+
+.search .contact-card .card-btns .contact-favorite-add:focus {
+    background-color: #fffbeb;
+    color: #FFB900;
+    transition: .2s all;
+}
+
+
+.search .fav-emer-cards {
+    position: sticky;
+}
+
+.search .favorite-card,
+.search .emergency-card {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+}
+
+.search .favorite-card .favorite-card-header {
+    background: linear-gradient(to right, rgb(255, 251, 235) 0%, rgb(255, 247, 237) 100%);
+    padding-block: .875rem;
+    border-bottom: .667px solid rgb(243, 244, 246);
+}
+
+.search .emergency-card .emergency-card-header {
+    background: linear-gradient(to right, rgb(255, 241, 242) 0%, rgb(254, 242, 242) 100%);
+    padding-block: .875rem;
+    border-bottom: .667px solid rgb(243, 244, 246);
+}
+
+.search .favorite-card .favorite-card-header span,
+.search .emergency-card .emergency-card-item span {
+    font-size: .875rem;
+}
+
+.search .favorite-card .favorite-card-header p,
+.search .emergency-card .emergency-card-item p {
+    font-size: .625rem;
+}
+
+.search .favorite-card .favorite-card-star {
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(to right bottom, rgb(255, 185, 0) 0%, rgb(255, 105, 0) 100%);
+}
+
+
+.search .emergency-card .emergency-card-heart {
+    background: linear-gradient(to right bottom, rgb(255, 32, 86) 0%, rgb(231, 0, 11) 100%);
+    width: 2rem;
+    height: 2rem;
+}
+
+.search .favorite-card .favorite-card-item a,
+.search .emergency-card .emergency-card-item a {
+    background-color: rgb(249, 250, 251);
+    border: 0.667px solid rgb(243, 244, 246);
+    border-radius: .75rem;
+    transition: .2s all;
+}
+
+.search .favorite-card .favorite-card-item a:hover,
+.search .emergency-card .emergency-card-item a:hover {
+    background-color: #FFFBEB;
+    border-color: rgb(254, 230, 133);
+}
+
+.search .favorite-card .favorite-card-item .fav-1letter,
+.search .emergency-card .emergency-card-item .emer-1letter {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+    background: linear-gradient(to right bottom, rgb(254, 154, 0) 0%, rgb(245, 73, 0) 100%);
+}
+
+.search .favorite-card .favorite-card-item .fav-name span,
+.search .emergency-card .emergency-card-item .emer-name span {
+    font-size: 11px;
+    color: black;
+}
+
+.search .favorite-card .favorite-card-item .fav-name p,
+.search .emergency-card .emergency-card-item .emer-name p {
+    font-size: 10px;
+    color: rgb(153, 161, 175);
+}
+
+/* END OF SEARCH SECTION */
+
+
+.group-family {
+    background-color: #DBEAFE;
+    color: #1447E6;
+}
+
+
+.group-friends {
+    background-color: #DBFCE7;
+    color: #008236;
+}
+
+.group-work {
+    background-color: #F3E8FF;
+    color: #8200DB;
+}
+
+.group-school {
+    background-color: #FEF3C6;
+    color: #BB4D00;
+}
+
+.group-other {
+    background-color: #F3F4F6;
+    color: #364153;
+}
+
+
+
+
+
+
+@media (min-width:768px) {
+    nav .notification-bell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .nav-right .contact-span {
+        display: inline-block;
+    }
+
+}
+
+@media (min-width:1200px) {
+    .search .favorite-card .favorite-card-item .row>div {
+        width: 100%;
+    }
+
+    .search .emergency-card .emergency-card-item .row>div {
+        width: 100%;
+    }
+
+
+
+}
