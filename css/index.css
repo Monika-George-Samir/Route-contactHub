@@ -33,9 +33,10 @@
     color: var(--main-red-color);
 }
 
-body{
+body {
     background-color: rgb(248, 250, 252);
 }
+
 /* END   OF GLOBAL STYLES  */
 
 
@@ -146,12 +147,15 @@ nav .nav-photo img {
     border-color: rgb(142, 81, 255);
     box-shadow: oklab(0.606 0.096545 -0.230606 / 0.2) 0px 0px 0px 2px;
 }
-.modal .modal-body textarea{
+
+.modal .modal-body textarea {
     resize: none;
 }
+
 .modal .modal-body input+span {
     margin-bottom: 1.25rem;
 }
+
 /* END   OF NAVBAR SECTION  */
 
 
@@ -269,6 +273,11 @@ nav .nav-photo img {
 .search .contact-details {
     padding-bottom: 12px;
 
+}
+
+.search .contact-details .contact-details-image img{
+    width: 4rem;
+    height: 4rem;
 }
 
 .search .contact-details .contact-name .letter .name-1letter {
@@ -446,6 +455,23 @@ nav .nav-photo img {
     border-bottom: .667px solid rgb(243, 244, 246);
 }
 
+.search .fav-card-phone,
+.search .emer-card-phone {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: .5rem;
+    border-radius: .375rem;
+}
+
+.search .fav-card-phone {
+    background-color: rgb(208, 250, 229);
+    color: rgb(0, 153, 102);
+}
+.search .emer-card-phone{
+    background-color: rgb(255, 228, 230);
+    color: var(--main-red-color);
+}
+
 .search .emergency-card .emergency-card-header {
     background: linear-gradient(to right, rgb(255, 241, 242) 0%, rgb(254, 242, 242) 100%);
     padding-block: .875rem;
@@ -483,10 +509,14 @@ nav .nav-photo img {
     transition: .2s all;
 }
 
-.search .favorite-card .favorite-card-item a:hover,
-.search .emergency-card .emergency-card-item a:hover {
+.search .favorite-card .favorite-card-item a:hover {
     background-color: #FFFBEB;
     border-color: rgb(254, 230, 133);
+}
+
+.search .emergency-card .emergency-card-item a:hover {
+    background-color: #fff1f2;
+    border-color: rgb(255, 204, 210);
 }
 
 .search .favorite-card .favorite-card-item .fav-1letter,
@@ -566,6 +596,13 @@ nav .nav-photo img {
         width: 100%;
     }
 
-
+    .search .favorite-card a:hover .fav-card-phone {
+        background-color: oklch(0.596 0.145 163.225);
+        color: white;
+    }
+    .search .emergency-card a:hover .emer-card-phone {
+        background-color: var(--main-red-color);
+        color: white;
+    }
 
 }

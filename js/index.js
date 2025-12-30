@@ -1,3 +1,4 @@
+var contactImageInput = document.getElementById("contactImage");
 var contactFullNameInput = document.getElementById("contactFullName");
 var contactFirstLetter = "";
 var contactPhoneNumberInput = document.getElementById("contactPhoneNumber");
@@ -32,6 +33,30 @@ if (JSON.parse(localStorage.getItem("allContacts"))) {
 
 
 
+// function handleImage(element) {
+//     var file = element.files[0];
+
+//     if (!file) return;
+//     Swal.fire("Missing Image", "error");
+
+//     if (!file.type.startsWith("image/")) {
+//         Swal.fire("Invalid Image", "Please select an image file", "error");
+//         element.value = "";
+//         return;
+//     }
+
+
+//     var reader = new FileReader();
+//     reader.onload = function () {
+//         document.getElementById("previewImg").src = reader.result;
+//         document.getElementById("previewImg").classList.remove("d-none");
+
+
+//         contactImageBase64 = reader.result;
+//     };
+//     reader.readAsDataURL(file);
+// }
+
 
 
 // contactEmailInput.style.background = 'linea'
@@ -58,31 +83,40 @@ function addContact() {
             title: "Invalid Email",
             text: "Please enter a valid email address",
         });
-    } else if (!validateFormInputs(contactPhoneNumberInput)) {
+    } else if (!validateFormInputs(contactAddressInput)) {
         Swal.fire({
             icon: "error",
-            title: "Invalid Phone",
-            text: "Please enter a valid Egyptian phone number (e.g., 01012345678 or +201012345678)",
+            title: "Invalid Address",
+            text: "Please enter a valid Address",
+        });
+    } else if (!validateFormInputs(contactGroupInput)) {
+        Swal.fire({
+            icon: "error",
+            title: "Missing Group",
+            text: "Please Select Group",
         });
     } else {
 
 
         var contact = {
+            // image: `./images/${contactImageInput.files[0].name}`,
+            // image: contactImageBase64 || "",
             fullName: contactFullNameInput.value,
             firstLetter: contactFullNameInput.value.charAt(0).toUpperCase(),
             phoneNumber: contactPhoneNumberInput.value,
             email: contactEmailInput.value,
             address: contactAddressInput.value,
             group: contactGroupInput.value,
-            notes : contactNotesInput.value,
+            notes: contactNotesInput.value,
             checkFavorite: checkFavoriteInput.checked,
             checkEmergency: checkEmergencyInput.checked
 
         }
 
         var editedIdx = saveBtn.getAttribute("updatedIdx");
+
         for (var i = 0; i < contactList.length; i++) {
-            if (editedIdx !=i && contactList[i].phoneNumber === contactPhoneNumberInput.value) {
+            if (editedIdx != i && contactList[i].phoneNumber === contactPhoneNumberInput.value) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Duplicate Phone Number',
@@ -90,36 +124,14 @@ function addContact() {
                     timer: 2000,
                     showConfirmButton: false
                 });
-                
+                return;
             }
-            
+
         }
-        
+
 
         if (editedIdx) {
-            // contactList[editedIdx] = contact;
-            contactList[editedIdx].fullName = contactFullNameInput.value;
-            contactList[editedIdx].firstLetter = contactFullNameInput.value.charAt(0).toUpperCase();
-            contactList[editedIdx].phoneNumber = contactPhoneNumberInput.value;
-            contactList[editedIdx].email = contactEmailInput.value;
-            contactList[editedIdx].address = contactAddressInput.value;
-            contactList[editedIdx].group = contactGroupInput.value;
-            contactList[editedIdx].notes = contactNotesInput.value;
-            contactList[editedIdx].checkFavorite = checkFavoriteInput.checked;
-            contactList[editedIdx].checkEmergency = checkEmergencyInput.checked;
-
-            saveBtn.removeAttribute("updatedIdx");
-
-            Swal.fire({
-                title: "Updated!",
-                icon: "success",
-                text: 'Contact is updated successfully.',
-                draggable: true,
-                timer: 1500,
-                showConfirmButton: false
-            });
-            countContacts();
-            hideModal();
+            updateContact();
         } else {
             contactList.push(contact);
             countContacts();
@@ -136,7 +148,7 @@ function addContact() {
         }
 
 
-        localStorage.setItem("allContacts", JSON.stringify(contactList));
+        addContactsToLocalStorage();
         displayContact(contactList);
         clearForm();
     }
@@ -144,10 +156,14 @@ function addContact() {
 }
 
 
+function addContactsToLocalStorage() {
+    localStorage.setItem("allContacts", JSON.stringify(contactList));
+}
 
 
 
 function clearForm() {
+    contactImageInput.value = "";
     contactFullNameInput.value = "";
     contactPhoneNumberInput.value = "";
     contactEmailInput.value = "";
@@ -174,28 +190,45 @@ function editContact(editedIdx) {
     checkEmergencyInput.checked = contactList[editedIdx].checkEmergency;
 
     document.getElementById("addBtn");
-     
+
 }
 
 
 
 
-// function updateContact() {
-//     var editedIdx = saveBtn.getAttribute("updatedIdx");
+function updateContact() {
+    var editedIdx = saveBtn.getAttribute("updatedIdx");
 
-//     contactList[editedIdx].fullName = contactFullNameInput.value;
-//     contactList[editedIdx].phoneNumber = contactPhoneNumberInput.value;
-//     contactList[editedIdx].email = contactEmailInput.value;
-//     contactList[editedIdx].address = contactAddressInput.value;
-//     contactList[editedIdx].group = contactGroupInput.vlue;
-//     contactList[editedIdx].checkFavorite = checkFavoriteInput.checked;
-//     contactList[editedIdx].checkEmergency = checkEmergencyInput.checked;
+    // contactList[editedIdx] = contact;
+    if (contactImageInput.files.length > 0) {
+        contactList[editedIdx].image = `./images/${contactImageInput.files[0].name}`;
+    }
+    contactList[editedIdx].fullName = contactFullNameInput.value;
+    contactList[editedIdx].phoneNumber = contactPhoneNumberInput.value;
+    contactList[editedIdx].email = contactEmailInput.value;
+    contactList[editedIdx].address = contactAddressInput.value;
+    contactList[editedIdx].group = contactGroupInput.value;
+    contactList[editedIdx].checkFavorite = checkFavoriteInput.checked;
+    contactList[editedIdx].checkEmergency = checkEmergencyInput.checked;
 
-//     localStorage.setItem("allContacts", JSON.stringify(contactList));
-//     displayContact(contactList);
-//     clearForm();
 
-// }
+
+    Swal.fire({
+        title: "Updated!",
+        icon: "success",
+        text: 'Contact is updated successfully.',
+        draggable: true,
+        timer: 1500,
+        showConfirmButton: false
+    });
+    countContacts();
+    hideModal();
+
+
+}
+
+
+
 
 
 function displayContact(list) {
@@ -241,7 +274,9 @@ function displayContact(list) {
 
         blackBox += ` <div class="col-sm-6">
                                     <div class="contact-card bg-white rounded-4">
-                                        <div class="contact-details px-3 pt-3">
+                                        <div class="contact-details px-3 pt-3 d-flex justify-content-between">
+
+                                        <div class="contact-details-info">
                                             <div class="contact-name d-flex gap-3">
                                                 <div class="letter position-relative">
                                                     <div
@@ -283,6 +318,14 @@ function displayContact(list) {
                                                     <span>Emergency</span> 
                                                 </span>` : ""}
                                             </div>
+                                            </div>
+
+                                             <div class="contact-details-image">
+                                        <figure>
+                                            <img id="previewImg" class="img-fluid rounded-circle" src="${list[i].image}" alt="" accept="image/*">
+                                        </figure>
+                                    </div>
+
                                         </div>
                                         <div class="contact-card-footer d-flex justify-content-between px-3">
                                             <div class="reach-direct d-flex column-gap-2">
@@ -315,7 +358,7 @@ function displayContact(list) {
                                                 <p class="m-0">${list[i].phoneNumber}</p>
                                             </div>
                                         </div>
-                                        <div><i class="fa-solid fa-phone"></i></div>
+                                        <div class="fav-card-phone d-flex justify-content-center align-items-center"><i class="fa-solid fa-phone"></i></div>
                                     </a>
                                     
                                 </div>`
@@ -337,7 +380,7 @@ function displayContact(list) {
                                             <p class="m-0">${list[i].phoneNumber}</p>
                                         </div>
                                     </div>
-                                    <div><i class="fa-solid fa-phone"></i></div>
+                                    <div class="emer-card-phone d-flex justify-content-center align-items-center"><i class="fa-solid fa-phone"></i></div>
                                 </a>
                                 </div>`
             hasEmer = true;
@@ -372,7 +415,7 @@ function displayContact(list) {
 
 function toggleFavorite(index) {
     contactList[index].checkFavorite = !contactList[index].checkFavorite;
-    localStorage.setItem("allContacts", JSON.stringify(contactList))
+    addContactsToLocalStorage();
     countContacts();
     displayContact(contactList)
 }
@@ -380,7 +423,7 @@ function toggleFavorite(index) {
 function toggleEmergency(index) {
     contactList[index].checkEmergency = !contactList[index].checkEmergency;
     countContacts();
-    localStorage.setItem("allContacts", JSON.stringify(contactList))
+    addContactsToLocalStorage();
     displayContact(contactList)
 }
 
@@ -463,7 +506,7 @@ function deleteContact(deletedIdx) {
         if (result.isConfirmed) {
             contactList.splice(deletedIdx, 1);
             countContacts();
-            localStorage.setItem("allContacts", JSON.stringify(contactList));
+            addContactsToLocalStorage()
             displayContact(contactList);
             Swal.fire({
                 title: "Deleted!",
